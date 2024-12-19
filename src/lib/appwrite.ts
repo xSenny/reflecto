@@ -16,8 +16,20 @@ const database = new Databases(client)
 
 export const session = async () => await account.getSession('current')
 
+export const checkSession = async () => {
+  try {
+    const s = await account.getSession('current');
+    console.log("Session:", s);
+    return s;
+  } catch (error) {
+    console.error("No active session found:", error);
+    throw error;
+  }
+};
+
+
 export const saveAccount = async () => {
-  const s = await session();
+  const s = await checkSession();
   
   try {
     await database.getDocument('database', 'users', s.userId);

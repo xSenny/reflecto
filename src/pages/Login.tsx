@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-import { loginOauth, session } from "../lib/appwrite";
+import { account, loginOauth } from "../lib/appwrite";
 import { FaGoogle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
@@ -10,12 +10,13 @@ const Login = () => {
   const [signState, setSignState] = useState<'sign-in' | 'sign-up'>('sign-in')
   const navigate = useNavigate()
   useState(async () => {
-    const s = await session();
-    if (!s) {
-      console.log('Not logged in')
-    } else {
+    try {
+      await account.get();
       navigate('/dashboard')
+    }catch {
+      console.log('Not logged in')
     }
+    
   })
   return (
     <>

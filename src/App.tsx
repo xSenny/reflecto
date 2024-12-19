@@ -4,6 +4,7 @@ import './App.css'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import Redirect from './pages/Redirect'
+import Dashboard from './pages/Dashboard'
 
 function App() {
 
@@ -18,6 +19,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path='/redirect' element={<Redirect />}/>
+        </Routes>
+        <Routes>
+          <Route path='/dashboard' element={<Dashboard />}/>
         </Routes>
       </BrowserRouter>
     </>
