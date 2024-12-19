@@ -1,15 +1,21 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-import { saveAccount } from "../lib/appwrite";
+import { account, saveAccount } from "../lib/appwrite";
 
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Loader } from "lucide-react";
 
 
 
 const Redirect = () => {
   const navigate = useNavigate()
+  const location = useLocation()
+  const getQueryParam = (param: string) => {
+    const queryParams = new URLSearchParams(location.search);
+    return queryParams.get(param);
+  };
   useState(async () => {
+    await account.createSession(getQueryParam('userId')!, getQueryParam('secret')!)
     await saveAccount().then(() => navigate('/dashboard'))
   })
   return (

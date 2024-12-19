@@ -9,7 +9,7 @@ export { ID } from 'appwrite'
 
 
 export const loginOauth = () => {
-  account.createOAuth2Session(OAuthProvider.Google, 'http://localhost:5173/redirect', 'http://localhost:5173/error')
+  account.createOAuth2Token(OAuthProvider.Google, 'http://localhost:5173/redirect', 'http://localhost:5173/error')
 }
 
 const database = new Databases(client)
