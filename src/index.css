@@ -15,3 +15,7 @@
   font-weight: 700;
   font-style: normal;
 }
+
+.bgc {
+  background: linear-gradient(135deg, #0D1117, #1E2732);
+}

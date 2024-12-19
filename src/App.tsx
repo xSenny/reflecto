@@ -21,7 +21,7 @@ function App() {
           <Route path='/redirect' element={<Redirect />}/>
         </Routes>
         <Routes>
-          <Route path='/dashboard' element={<Dashboard />}/>
+          <Route path='/journal' element={<Dashboard />}/>
         </Routes>
       </BrowserRouter>
     </>

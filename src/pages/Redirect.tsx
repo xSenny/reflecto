@@ -16,7 +16,7 @@ const Redirect = () => {
   };
   useState(async () => {
     await account.createSession(getQueryParam('userId')!, getQueryParam('secret')!)
-    await saveAccount().then(() => navigate('/dashboard'))
+    await saveAccount().then(() => navigate('/journal'))
   })
   return (
     <>
